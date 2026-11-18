@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>台達電（2308）深度分析｜2026 年 11 月 18 日</title>
+  <style>
+    :root { --ink:#1e293b; --muted:#617084; --line:#d9e1e8; --navy:#193958; --blue:#2374ab; --light:#f4f7fa; --green:#16774b; --red:#b6393a; --amber:#956516; --white:#fff; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#edf1f4;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;line-height:1.82;font-size:16px}
+    .container{max-width:1040px;margin:0 auto;padding:24px 25px 70px}
+    .document{background:#fff;box-shadow:0 10px 35px rgba(15,35,55,.08);border:1px solid #dfe6eb}
+    .masthead{padding:49px 54px 33px;border-bottom:5px solid var(--navy);background:#fff}
+    .eyebrow{color:#657d94;letter-spacing:.14em;font-size:12px;font-weight:700;margin:0 0 10px}
+    h1{font-size:32px;line-height:1.4;color:var(--navy);margin:0 0 14px;font-weight:800;letter-spacing:.015em}
+    .subtitle{color:#5a6b7b;font-size:15px;margin:0}
+    .report-date{display:inline-block;background:#eef2f6;border-radius:3px;padding:5px 10px;margin-top:14px;color:#496075;font-size:13px}
+    .toolbar{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;padding:15px 54px 0}
+    .btn{border:1px solid #c7d3dc;background:#fff;color:#2b4861;padding:8px 14px;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer}
+    .btn:hover{background:#eff4f8}
+    .contents{margin:12px 54px 0;padding:18px 20px;border:1px solid var(--line);background:#f9fbfc}
+    .contents strong{display:block;font-size:14px;color:var(--navy);margin-bottom:7px}
+    .contents-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px 15px}
+    .contents a{color:#3f5c76;text-decoration:none;font-size:13px}.contents a:hover{text-decoration:underline}
+    .content{padding:23px 54px 55px}
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:12px 0 21px}
+    .metric{border:1px solid var(--line);border-top:3px solid var(--navy);padding:16px 15px 13px;background:#fff;min-height:109px}
+    .metric .label{font-size:12px;color:var(--muted);line-height:1.5}
+    .metric .value{font-size:29px;line-height:1.4;font-weight:800;color:#172d42;letter-spacing:-.03em;font-variant-numeric:tabular-nums;white-space:nowrap}
+    .metric .sub{font-size:12px;color:var(--muted)}
+    .red{color:var(--red)!important}.green{color:var(--green)!important}
+    .lead{font-size:17px;border-left:4px solid var(--blue);background:#f4f8fb;padding:15px 18px;margin:21px 0 28px}
+    p{margin:10px 0 17px}
+    section{margin:32px 0 37px;break-inside:auto}
+    h2{font-size:22px;color:var(--navy);border-bottom:2px solid #b6c6d4;padding-bottom:9px;margin:0 0 18px;line-height:1.5}
+    h3{font-size:17px;color:#224765;margin:22px 0 10px;line-height:1.45}
+    .number{color:#527692;font-weight:600;margin-right:9px}
+    .tbl-wrap{overflow-x:auto;margin:16px 0 10px}
+    table{border-collapse:collapse;width:100%;font-size:14px;min-width:580px}
+    th{background:#eaf0f5;color:#264961;font-weight:700;text-align:left}
+    th,td{padding:10px 13px;border:1px solid #d4dee6;vertical-align:top}
+    tr:nth-child(even) td{background:#f9fbfd}
+    td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+    .small{font-size:12px;line-height:1.8;color:#687789}
+    .note{background:#f8fafb;border:1px solid #dee6ed;border-left:4px solid #7c91a3;padding:13px 16px;margin:16px 0}
+    .notice{border-left-color:#c48b32;background:#fffaf0}
+    .revenue-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:17px 0}
+    .revenue-box{background:#f6f9fb;border:1px solid #dbe4eb;padding:16px}
+    .revenue-box .label{color:var(--muted);font-size:12px;line-height:1.55}
+    .revenue-box .value{font-size:22px;color:#173c58;font-weight:800;font-variant-numeric:tabular-nums}
+    .revenue-box .sub{font-size:12px;color:var(--green);font-weight:600}
+    .chart-box{padding:18px 15px 10px;border:1px solid var(--line);background:#fff;margin-top:18px}
+    .chart-title{color:var(--navy);font-size:14px;font-weight:700;padding-left:13px}
+    svg{max-width:100%;height:auto;display:block}
+    .zones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:18px 0}
+    .zone{border:1px solid var(--line);padding:17px 17px 13px;break-inside:avoid}
+    .zone.primary{border-top:4px solid var(--green)}.zone.secondary{border-top:4px solid #a9792c}.zone.tertiary{border-top:4px solid #537793}
+    .zone .zone-title{color:#5e6d7b;font-size:13px;font-weight:700;line-height:1.5;min-height:40px}
+    .zone .zone-price{font-size:24px;color:var(--navy);font-weight:800;margin:4px 0 11px;white-space:nowrap;font-variant-numeric:tabular-nums}
+    .zone p{font-size:13px;line-height:1.82;margin:0}
+    .tag{font-size:11px;border:1px solid #9abca8;color:#21794d;padding:2px 7px;display:inline-block;margin-top:7px;background:#eff9f3}
+    .takeaway{margin-top:28px;border-top:3px solid var(--navy);background:#f5f8fa;padding:22px 24px}
+    .takeaway h3{margin-top:0}
+    .takeaway p{margin:11px 0}
+    .sources{border-top:1px solid var(--line);margin-top:30px;padding-top:15px;color:#6e7b88;font-size:12px}
+    .footer{background:#f1f5f8;padding:20px 54px;text-align:center;color:#6a7987;font-size:12px;border-top:1px solid #dbe3e9}
+    @media (max-width:900px){.metrics,.revenue-grid{grid-template-columns:repeat(2,1fr)}.zones{grid-template-columns:1fr}.zone .zone-title{min-height:0}.contents-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.container{padding:0}.document{border:0;box-shadow:none}.masthead{padding:30px 22px 24px}h1{font-size:25px}.toolbar{padding:12px 22px 0}.contents{margin:12px 22px 0;padding:13px}.contents-grid{grid-template-columns:1fr}.content{padding:16px 22px 32px}.metrics{gap:9px}.metric{padding:11px}.metric .value{font-size:23px}.revenue-grid{gap:9px}.revenue-box{padding:11px}.revenue-box .value{font-size:19px}h2{font-size:20px}.footer{padding:18px 22px}}
+    @page{size:A4;margin:15mm 13mm}
+    @media print{html{scroll-behavior:auto}body{background:white;font-size:11pt}.container{padding:0;max-width:none}.document{border:0;box-shadow:none}.masthead{padding:5mm 0 7mm}.content{padding:0}.toolbar,.contents{display:none}.metrics,.revenue-grid{gap:7px}.metric{min-height:0;padding:8px}.metric .value{font-size:20px}.revenue-box{padding:8px}.revenue-box .value{font-size:17px}.zones{grid-template-columns:repeat(3,1fr);gap:8px}.zone{padding:9px}.zone .zone-price{font-size:18px}.zone p{font-size:10pt}h2{break-after:avoid}h3{break-after:avoid}.footer{padding:8px 0;background:white}section{margin:15px 0}.chart-box{break-inside:avoid}.takeaway{break-inside:avoid}thead{display:table-header-group}tr{break-inside:avoid}}
+  </style>
+</head>
+<body>
+<div class="container"><article class="document">
+  <header class="masthead">
+    <p class="eyebrow">TAIWAN EQUITY RESEARCH · 股票研究報告</p>
+    <h1>台達電（2308）深度分析<br>現在 1,060 元，可以買了嗎？</h1>
+    <p class="subtitle">股價修正原因、財報與營收、估值、買點觀察區、三日成交量驗證</p>
+    <div class="report-date">資料基準日｜2026 年 11 月 18 日收盤</div>
+  </header>
+  <div class="toolbar"><button class="btn" onclick="window.print()">列印／另存 PDF</button><button class="btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">返回頂端 ↑</button></div>
+  <nav class="contents" aria-label="目錄">
+    <strong>報告目錄</strong>
+    <div class="contents-grid">
+      <a href="#why">一、股價為什麼大跌？</a>
+      <a href="#revenue">二、營收與獲利表現</a>
+      <a href="#buy">三、三個買點觀察區</a>
+      <a href="#valuation">四、估值與本益比</a>
+      <a href="#volume">五、三日平均量驗證</a>
+      <a href="#segments">七、事業群與 AI 營收結構</a>
+      <a href="#quarterly">八、逐季財報趨勢</a>
+      <a href="#outlook">九、第四季與 2027 年展望</a>
+      <a href="#risks">十、風險清單</a>
+      <a href="#conclusion">十一、結論與觀察指標</a>
+    </div>
+  </nav>
+  <main class="content">
+    <div class="metrics" aria-label="關鍵市場數據">
+      <div class="metric"><div class="label">11/18 收盤價</div><div class="value">1,060 元</div><div class="sub green">+5 元（+0.47%）</div></div>
+      <div class="metric"><div class="label">11/3～11/18 股價跌幅</div><div class="value red">−16.54%</div><div class="sub">11/3 收盤 1,270 元</div></div>
+      <div class="metric"><div class="label">11/18 盤中高／低</div><div class="value" style="font-size:21px">1,100／1,000</div><div class="sub">單位：元</div></div>
+      <div class="metric"><div class="label">近三日平均放量倍數</div><div class="value">1.11 倍</div><div class="sub">未達 1.5 倍觀察門檻</div></div>
+    </div>
+    <div class="lead"><strong>初步判斷：</strong>台達電營收並沒有崩壞。股價大跌較可能與第三季獲利低於市場預期、此前估值過高，以及市場資金調節有關。不過，11/18 雖從 1,000 元盤中低點回升至 1,060 元，尚不足以確認止跌。</div>
+
+    <section id="why">
+      <h2><span class="number">01.</span>台達電最近為什麼跌這麼慘？</h2>
+      <p>2026 年 10 月 6 日，台達電盤中曾達 <strong>2,115 元</strong>。至 11 月 18 日收盤僅 1,060 元，較該盤中高點回落約 <strong class="red">49.9%</strong>，接近腰斬。</p>
+      <h3>1. 第三季財報不如市場預期</h3>
+      <p>2026 年第三季 EPS 為 <strong>9.04 元</strong>，低於第二季的 9.68 元；毛利率從約 35.64% 降至 <strong>34.08%</strong>。原分析所列影響包括供應鏈缺料、客戶資料中心建置延後，以及相關存貨跌價損失。這些因素未必永久，但已影響單季獲利。</p>
+      <h3>補充：不如預期的幅度有多大</h3>
+      <div class="tbl-wrap"><table><thead><tr><th>第三季項目</th><th class="num">市場預期</th><th class="num">實際結果</th></tr></thead><tbody>
+        <tr><td>單季營收</td><td class="num">約 2,067 億元</td><td class="num">1,970.59 億元</td></tr>
+        <tr><td>毛利率</td><td class="num">約 36.0%</td><td class="num">34.08%</td></tr>
+        <tr><td>每股盈餘（EPS）</td><td class="num">約 10.4～10.6 元</td><td class="num">9.04 元</td></tr>
+      </tbody></table></div>
+      <p>落差的主要來源是存貨：第三季認列存貨跌價及呆滯損失約 <strong>39.3 億元</strong>，遠高於正常季度水準。旗下泰國上市子公司泰達電單季提列約 18 億泰銖（約新台幣 17 億元）存貨跌價損失，毛利率降至 27.5%，全年毛利率展望由約 30% 下修至 29%；摩根大通並指出跌價提列時程較預期拉長，已調降泰達電 2026–2028 年獲利預估。公司說明這屬會計認列時點問題、不是需求消失，但提列是否延續到第四季，是下一個驗證點。</p>
+      <h3>2. 先前股價反映了較高的 AI 成長預期</h3>
+      <p>市場對台達電的定價不再只是傳統電源供應器業務，也納入 AI 資料中心、液冷系統及高壓直流電源等中長期成長。當財報未達高預期時，即使營收仍成長，股價也可能因估值下修而大跌。</p>
+      <h3>3. 外資持續調節</h3>
+      <p>原分析指出，截至 11 月 17 日，外資近 20 個交易日累計賣超約 <strong>50,572 張</strong>。持續性的法人賣壓可能延長整理時間，因此目前不宜把整波回檔單純視為恐慌錯殺。</p>
+      <div class="note"><strong>觀察重點：</strong>營收成長仍在，但市場最在意的是「營收能否轉化成更高毛利與每股盈餘」，以及未來成長是否足以支持估值。</div>
+    </section>
+
+    <section id="revenue">
+      <h2><span class="number">02.</span>營收究竟好不好？</h2>
+      <p>原分析顯示，2026 年 10 月營收再創高，且前十個月累計營收已超過 2025 全年，代表公司營收動能並未因股價修正而停止。</p>
+      <div class="revenue-grid">
+        <div class="revenue-box"><div class="label">2026 年 10 月營收</div><div class="value">746.66 億</div><div class="sub">年增 30.12%</div></div>
+        <div class="revenue-box"><div class="label">2026 年前十月營收</div><div class="value">6,143.34 億</div><div class="sub">年增約 36.3%</div></div>
+        <div class="revenue-box"><div class="label">2026 年前三季 EPS</div><div class="value">26.64 元</div><div class="sub">年增約 61.7%</div></div>
+        <div class="revenue-box"><div class="label">2026 年第三季毛利率</div><div class="value">34.08%</div><div class="sub red">季減 1.56 個百分點</div></div>
+      </div>
+      <p>2025 年全年營收為 <strong>5,548.85 億元</strong>。不過，營收創高與股價便宜是兩回事；下一步應觀察毛利率是否隨 AI 業務比重提高而回升。</p>
+      <div class="chart-box"><div class="chart-title">2026 年各月營收走勢（億元）</div><svg id="revenueChart" viewBox="0 0 900 330" role="img" aria-label="2026 年 1 到 10 月營收折線圖，從 497 億元上升至十月 747 億元"><title>台達電 2026 年月營收</title><rect x="0" y="0" width="900" height="330" fill="#fff"/><g id="chartPlot"></g></svg><div class="small" style="padding:0 12px 5px">圖表營收採原分析中的整數近似值，10 月正式公告數字為 746.66 億元。</div></div>
+      <p>原分析引述 10 月法說會展望：AI 與資料中心相關業務營收已接近整體五成，第四季營收預期高於第三季，毛利率預期不低於 34.08%。<strong>此為展望，並非已實現結果。</strong></p>
+    </section>
+
+    <section id="buy">
+      <h2><span class="number">03.</span>三個買點觀察區</h2>
+      <p>以下是依原文技術價位及估值整理的<strong>條件式觀察區</strong>，不是到價即買的指令，也不保證會出現支撐。</p>
+      <div class="zones">
+        <div class="zone primary"><div class="zone-title">第一觀察區｜等待低點確認</div><div class="zone-price">980～1,020 元</div><p>11/6 低點約 1,020 元，11/18 下探至 1,000 元。重點在回測後能否站回 1,020 元、連續收盤不破低，再考慮是否分批觀察。</p><span class="tag">優先觀察</span></div>
+        <div class="zone secondary"><div class="zone-title">第二觀察區｜重視估值安全邊際</div><div class="zone-price">880～950 元</div><p>用近四季 EPS 約 33.3 元計算，對應本益比約 26.4～28.5 倍。這是估值觀察區，<strong>不是已確認的技術支撐</strong>；若獲利惡化，仍需重估。</p></div>
+        <div class="zone tertiary"><div class="zone-title">第三觀察區｜等待趨勢改善</div><div class="zone-price">1,120～1,160 元</div><p>近期下跌過程的壓力區。若重新站穩、量能增加且法人賣壓減緩，短線型態可能改善，但買進成本也會較高。</p></div>
+      </div>
+    </section>
+
+    <section id="valuation">
+      <h2><span class="number">04.</span>用獲利估算，1,060 元到底貴不貴？</h2>
+      <div class="tbl-wrap"><table><thead><tr><th>獲利基準</th><th class="num">EPS</th><th class="num">1,060 元對應本益比</th><th>性質</th></tr></thead><tbody>
+        <tr><td>近四季已實現獲利</td><td class="num">33.30 元</td><td class="num"><strong>31.8 倍</strong></td><td>歷史財報</td></tr>
+        <tr><td>2026 年大摩預估</td><td class="num">37.77 元</td><td class="num">28.1 倍</td><td>券商預估</td></tr>
+        <tr><td>2027 年大摩預估</td><td class="num">60.77 元</td><td class="num">17.4 倍</td><td>券商預估</td></tr>
+      </tbody></table></div>
+      <p>若 2027 年 EPS 真能達 60.77 元，現價對應遠期本益比約 <strong>17.4 倍</strong>；但若只達 45 元，遠期本益比就約為 <strong>23.6 倍</strong>。因此，是否便宜高度依賴後續獲利成長能否兌現。</p>
+      <p>原分析引述 FinLab：近五年本益比中位數約 <strong>26.6 倍</strong>，以近四季 EPS 33.3 元換算，股價約 <strong>886 元</strong>（33.3 × 26.6；原文寫約 884 元，屬約略值）。就已實現獲利而言，1,060 元仍帶有成長溢價。</p>
+      <div class="note notice"><strong>估值提醒：</strong>預估 EPS 不是保證。若未來因訂單延後、毛利率變化而下修 EPS，所謂低本益比也可能隨之改變。</div>
+    </section>
+
+    <section id="volume">
+      <h2><span class="number">05.</span>低檔爆量檢驗：台達電還未達標</h2>
+      <p>按照先前指定的篩選方法：以 11/16～11/18 的三日平均成交量，除以 11/3～11/13 的前九個交易日平均成交量。</p>
+      <div class="tbl-wrap"><table><thead><tr><th>比較區間／指標</th><th class="num">數值</th></tr></thead><tbody>
+        <tr><td>11/3～11/13，前九日平均成交量</td><td class="num">20,039 張</td></tr>
+        <tr><td>11/16～11/18，最近三日平均成交量</td><td class="num">22,250 張</td></tr>
+        <tr><td><strong>最近三日放量倍數</strong></td><td class="num"><strong>1.11 倍</strong></td></tr>
+        <tr><td>本次明顯放量觀察門檻</td><td class="num">1.50 倍</td></tr>
+      </tbody></table></div>
+      <p><strong>結論：</strong>台達電只有約 1.11 倍，未達你設定的「近三日平均放量至少 1.5 倍」條件。11/18 從盤中低點反彈是正面現象，但單日拉回不能證明大戶已完成承接。</p>
+      <p>後續可一起觀察 1,000 元支撐、外資買賣超是否由負轉正，以及第四季毛利率有無回穩。</p>
+    </section>
+
+
+    <section id="segments">
+      <h2><span class="number">07.</span>事業群結構：成長靠誰在撐？</h2>
+      <p>原分析只說 AI 業務「接近五成」，以下依公司 10 月營收公告的事業群比重補齊結構（公告未拆分 AI 營收占比，以下為事業群口徑）：</p>
+      <div class="tbl-wrap"><table><thead><tr><th>事業群（2026 年 10 月）</th><th class="num">營收占比</th><th>說明</th></tr></thead><tbody>
+        <tr><td>電源及零組件</td><td class="num"><strong>51%</strong></td><td>第三季部門營收 1,059.3 億元、年增 40%，AI 伺服器電源為主引擎</td></tr>
+        <tr><td>基礎設施</td><td class="num"><strong>36%</strong></td><td>含資料中心液冷與供電系統；第三季液冷散熱營收約 250 億元、占單季營收約 13%</td></tr>
+        <tr><td>自動化</td><td class="num">8%</td><td>工業與樓宇自動化，成長性低於 AI 相關部門</td></tr>
+        <tr><td>交通</td><td class="num">5%</td><td>電動車相關，占比最小</td></tr>
+      </tbody></table></div>
+      <p>電源及零組件與基礎設施合計占 <strong>87%</strong>。公司原估 2026 年 AI 相關營收占比約 25%（以電源為主），加計液冷後，全年來自 AI 資料中心的營收比重估計達約 <strong>50%</strong>——這正是股價對 AI 資本支出變化高度敏感的原因：營收的一半繫於資料中心建置節奏。</p>
+    </section>
+
+    <section id="quarterly">
+      <h2><span class="number">08.</span>逐季財報趨勢：獲利是 Q3 單季轉弱</h2>
+      <div class="tbl-wrap"><table><thead><tr><th>季度</th><th class="num">營收（億元）</th><th class="num">毛利率</th><th class="num">EPS（元）</th></tr></thead><tbody>
+        <tr><td>2026 年第一季</td><td class="num">約 1,594</td><td class="num">—</td><td class="num">7.92</td></tr>
+        <tr><td>2026 年第二季</td><td class="num">約 1,833</td><td class="num">約 35.6%</td><td class="num">9.68</td></tr>
+        <tr><td>2026 年第三季</td><td class="num"><strong>1,970.59</strong></td><td class="num"><strong>34.08%</strong></td><td class="num"><strong>9.04</strong></td></tr>
+        <tr><td>2026 年前三季累計</td><td class="num">5,396.68</td><td class="num">—</td><td class="num">26.64</td></tr>
+      </tbody></table></div>
+      <p class="small">註：第三季與前三季累計為財報公告值；第一、二季營收與第一季 EPS 由累計數及季增率推算（第二季營收季增率反推、第一季為累計扣除後兩季），毛利率第一季未列入本表。重點在趨勢：營收逐季創高，但 EPS 在第三季反轉下滑，斷點來自毛利率與存貨提列，不是營收。</p>
+    </section>
+
+    <section id="outlook">
+      <h2><span class="number">09.</span>第四季與 2027 年展望：要驗證什麼？</h2>
+      <p><strong>公司說法（10 月底法說會）：</strong>董事長鄭平表示第四季營收將高於第三季、毛利率不會比第三季差；因應上游材料漲價，已與客戶協商調價，預計本季到明年第一季陸續反映。</p>
+      <p><strong>法人預估：</strong>多家券商估第四季營收約 2,160～2,250 億元（季增約 9.5%～14%），可望首度突破單季 2,000 億元；市場共識 EPS 約 11.3 元。第四季財報預計 2027 年 2 月下旬公布——這是「毛利率回升、存貨提列收斂」兩項假設的驗收日。</p>
+      <p><strong>2027 年動能：</strong>新一代 Vera Rubin 平台 18.3kW 電源供應器已開始出貨，400V／800V 高壓直流電源產品小量出貨、預期 2027 年量產。法人預估 2026、2027 年營收皆可望維持三成以上年增，但前提是資料中心建置不再遞延。</p>
+      <div class="note"><strong>驗證清單：</strong>① 11、12 月營收能否維持 700 億元級別；② 第四季毛利率是否回到 35% 以上；③ 存貨跌價提列是否收斂；④ 泰達電庫存去化進度。四項中若有兩項落空，第二觀察區（880～950 元）的估值邏輯才會變得重要。</div>
+    </section>
+
+    <section id="risks">
+      <h2><span class="number">10.</span>風險清單：原分析沒寫到的部分</h2>
+      <p><strong>1. 美國 337 專利調查。</strong>2026 年 10 月 12 日台達電公告，美國國際貿易委員會（USITC）就公司及子公司的特定專利爭議展開 337 調查。若後續裁定不利，相關產品可能面臨進口限制，進展值得追蹤。</p>
+      <p><strong>2. 存貨提列可能還沒結束。</strong>摩根大通指出泰達電跌價提列時程較預期拉長、明年初重新議價前供應商成本仍高；第四季若再出現大額提列，毛利率回升時點將再遞延。</p>
+      <p><strong>3. 估值仍不便宜。</strong>以近四季 EPS 計算本益比約 31.8 倍，高於近五年中位數約 26.6 倍；股價已先跌，但「跌多」不等於「低估」，獲利下修時估值會被動墊高。</p>
+      <p><strong>4. 波動度極高。</strong>11/18 單日振幅達 9.48%（高 1,100、低 1,000），且近一個月跌幅逾三成；分批與部位控管的重要性高於進場時點本身。</p>
+    </section>
+
+    <section id="conclusion">
+      <h2><span class="number">11.</span>整體結論</h2>
+      <div class="takeaway">
+        <h3>公司仍有成長動能，但低檔承接尚待確認</h3>
+        <p><strong>基本面：偏正面。</strong>營收持續增長，AI 資料中心、電源和散熱業務具長期需求支撐。</p>
+        <p><strong>獲利：正面但需要驗證。</strong>第三季毛利率下滑、存貨因素仍須追蹤，不能只憑法說展望認定改善已完成。</p>
+        <p><strong>技術面：尚未確認止跌。</strong>需觀察 1,000～1,020 元低點區域，近三日平均量比也只有 1.11 倍。</p>
+        <p><strong>價格：分情境看待。</strong>980～1,020 元是低點確認觀察區；880～950 元是較重估值安全邊際的區間；1,120～1,160 元是等待趨勢改善的參考位置。</p>
+        <p style="margin-bottom:0"><strong>核心判斷：</strong>不宜只因「從高點近乎腰斬」就重倉買進。更可信的訊號是股價止跌、營收成長延續、毛利率回升與法人賣壓同步改善。</p>
+      </div>
+    </section>
+    <div class="sources">
+      <strong>資料及使用說明</strong><br>
+      本 HTML 依使用者提供之〈台達電（2308）深度分析：現在 1,060 元，可以買了嗎？〉內容排版製作，數據基準為 2026/11/18。<strong>補充版（2026/11/18）已就關鍵數字重新查證</strong>：11/18 收盤 1,060 元、10/6 盤中高點 2,115 元、11/3 收盤 1,270 元與成交量區間均值，經歷史行情核對相符；第三季財報（營收 1,970.59 億元、毛利率 34.08%、EPS 9.04 元）與公開資訊觀測站申報及中央社報導相符；10 月營收 746.66 億元與事業群占比（51／36／8／5）來自公司公告。新增第七至十節（事業群結構、逐季趨勢、展望、風險）為查證後補入，市場預期數字引述券商共識整理，仍屬預估性質。外資近 20 日賣超張數與大摩 EPS 預估沿用原稿引述，未逐項複核。文中價格區間與評價均屬研究情境，不構成投資建議；股市具損失風險。<br>
+      計算註：自 2,115 元至 1,060 元回落約 49.9%；1,060 ÷ 33.3 ≈ 31.8 倍；22,250 ÷ 20,039 ≈ 1.11 倍。<br>
+      <span id="createdNote"></span>
+    </div>
+  </main>
+  <footer class="footer">台達電（2308）投資研究整理　|　資料截至 2026 年 11 月 18 日</footer>
+</article></div>
+<script>
+(function(){
+  const data=[497,499,598,587,590,656,671,646,654,747];
+  const plot=document.getElementById('chartPlot');
+  const NS='http://www.w3.org/2000/svg';
+  const make=(tag,attrs,text)=>{const node=document.createElementNS(NS,tag);Object.entries(attrs||{}).forEach(([k,v])=>node.setAttribute(k,v));if(text!==undefined)node.textContent=text;plot.appendChild(node);return node};
+  const left=65,right=855,top=24,bottom=269,min=400,max=800;
+  const x=i=>left+(right-left)*i/(data.length-1);
+  const y=v=>bottom-(v-min)*(bottom-top)/(max-min);
+  for(let val=400;val<=800;val+=100){const yp=y(val);make('line',{x1:left,y1:yp,x2:right,y2:yp,stroke:'#e5ebf0','stroke-width':'1'});make('text',{x:50,y:yp+5,'text-anchor':'end',fill:'#758495','font-size':'13'},String(val))}
+  let d=data.map((v,i)=>(i?'L':'M')+x(i)+' '+y(v)).join(' ');
+  let area=d+' L '+right+' '+bottom+' L '+left+' '+bottom+' Z';
+  make('path',{d:area,fill:'#eaf3f9',stroke:'none'});
+  make('path',{d,fill:'none',stroke:'#2374ab','stroke-width':'3','stroke-linecap':'round','stroke-linejoin':'round'});
+  data.forEach((v,i)=>{
+    make('circle',{cx:x(i),cy:y(v),r:i===9?6:4,fill:i===9?'#16774b':'#2374ab',stroke:'#fff','stroke-width':2});
+    make('text',{x:x(i),y:303,'text-anchor':'middle',fill:'#687989','font-size':'13'},(i+1)+'月');
+    if(i===0||i===5||i===9)make('text',{x:x(i),y:y(v)-13,'text-anchor':'middle',fill:i===9?'#16774b':'#486477','font-size':'14','font-weight':'700'},String(v));
+  });
+})();
+</script>
+</body>
+</html>
